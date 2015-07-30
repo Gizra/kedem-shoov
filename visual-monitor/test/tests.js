@@ -41,7 +41,7 @@ var caps = selectedCaps ? capsConfig[selectedCaps] : undefined;
 var providerPrefix = process.env.PROVIDER_PREFIX ? process.env.PROVIDER_PREFIX + '-' : '';
 var testName = selectedCaps ? providerPrefix + selectedCaps : providerPrefix + 'default';
 
-var baseUrl = process.env.BASE_URL ? process.env.BASE_URL : 'http://www.kedem-auctions.com/';
+var baseUrl = process.env.BASE_URL ? process.env.BASE_URL : 'http://www.kedem-auctions.com';
 
 describe('Visual monitor testing', function() {
 
@@ -59,12 +59,31 @@ describe('Visual monitor testing', function() {
   it('should show the home page',function(done) {
     client
       .url(baseUrl)
+      .pause(9000)
       .webdrivercss(testName + '.homepage', {
         name: '1',
-        exclude: [],
-        remove: [],
-        screenWidth: selectedCaps == 'chrome' ? [640, 960, 1200] : undefined,
+        exclude:
+            [
+                // Top carousel.
+                '#block-md-slider-1',
+            ],
       }, shoovWebdrivercss.processResults)
       .call(done);
   });
+
+    it('should show the auction no 46 page',function(done) {
+        client
+            .url(baseUrl + 'node/19640')
+            .webdrivercss(testName + '.auction46', {
+                name: '1',
+                exclude:
+                    [
+                        // Sale count down.
+                        '.pane-circuit-sale-circuitcountdown',
+                    ],
+                remove: [],
+                screenWidth: selectedCaps == 'chrome' ? [640, 960, 1200] : undefined,
+            }, shoovWebdrivercss.processResults)
+            .call(done);
+    });
 });
