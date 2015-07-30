@@ -63,27 +63,27 @@ describe('Visual monitor testing', function() {
       .webdrivercss(testName + '.homepage', {
         name: '1',
         exclude:
-            [
-                // Top carousel.
-                '#block-md-slider-1',
-            ],
+          [
+            // Top carousel.
+            '#block-md-slider-1',
+          ],
       }, shoovWebdrivercss.processResults)
       .call(done);
   });
 
     it('should show the auction no 46 page',function(done) {
-        client
-            .url(baseUrl + 'node/19640')
-            .webdrivercss(testName + '.auction46', {
-                name: '1',
-                exclude:
-                    [
-                        // Sale count down.
-                        '.pane-circuit-sale-circuitcountdown',
-                    ],
-                remove: [],
-                screenWidth: selectedCaps == 'chrome' ? [640, 960, 1200] : undefined,
-            }, shoovWebdrivercss.processResults)
-            .call(done);
+      client
+        .url(baseUrl + 'node/19640')
+        .webdrivercss(testName + '.auction46', {
+          name: '1',
+          exclude:
+            [
+              // Sale count down.
+              '.pane-circuit-sale-circuitcountdown',
+            ],
+            remove: [],
+            screenWidth: selectedCaps == 'chrome' ? [640, 960, 1200] : undefined,
+        }, shoovWebdrivercss.processResults)
+        .call(done);
     });
 });
