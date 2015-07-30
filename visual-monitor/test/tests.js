@@ -73,7 +73,7 @@ describe('Visual monitor testing', function() {
 
     it('should show the auction no 46 page',function(done) {
       client
-        .url(baseUrl + 'node/19640')
+        .url(baseUrl + '/node/19640')
         .webdrivercss(testName + '.auction46', {
           name: '1',
           exclude:
