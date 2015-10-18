@@ -67,7 +67,11 @@ describe('Visual monitor testing', function() {
         exclude:
           [
             // Top carousel.
-            '#block-md-slider-1',
+            '.slider',
+            // Auction title.
+            '.block-views-front-page-call-out-block-block .views-field views-field-title-field',
+            // Auction date.
+            '.date-display-single',
           ],
         screenWidth: selectedCaps == 'chrome' ? [640, 1200] : undefined
       }, shoovWebdrivercss.processResults)
