@@ -67,7 +67,7 @@ describe('Visual monitor testing', function() {
         exclude:
           [
             // Top carousel.
-            '.slider',
+            '#block-md-slider-1',
           ],
         hide:
           [
