@@ -72,7 +72,7 @@ describe('Visual monitor testing', function() {
         hide:
           [
             // Auction title.
-            '.block-views-front-page-call-out-block-block .views-field views-field-title-field',
+            '.views-field-title-field',
             // Auction date.
             '.date-display-single',
           ],
