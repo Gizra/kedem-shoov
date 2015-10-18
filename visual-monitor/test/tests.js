@@ -1,6 +1,7 @@
 'use strict';
 
 var shoovWebdrivercss = require('shoov-webdrivercss');
+var projectName = 'Kedem-shoov';
 
 // This can be executed by passing the environment argument like this:
 // PROVIDER_PREFIX=browserstack SELECTED_CAPS=chrome mocha
@@ -9,6 +10,7 @@ var shoovWebdrivercss = require('shoov-webdrivercss');
 
 var capsConfig = {
   'chrome': {
+    project: projectName,
     'browser' : 'Chrome',
     'browser_version' : '42.0',
     'os' : 'OS X',
@@ -16,6 +18,7 @@ var capsConfig = {
     'resolution' : '1024x768'
   },
   'ie11': {
+    project: projectName,
     'browser' : 'IE',
     'browser_version' : '11.0',
     'os' : 'Windows',
@@ -59,7 +62,6 @@ describe('Visual monitor testing', function() {
   it('should show the home page',function(done) {
     client
       .url(baseUrl)
-      .pause(9000)
       .webdrivercss(testName + '.homepage', {
         name: '1',
         exclude:
@@ -67,6 +69,7 @@ describe('Visual monitor testing', function() {
             // Top carousel.
             '#block-md-slider-1',
           ],
+        screenWidth: selectedCaps == 'chrome' ? [640, 1200] : undefined
       }, shoovWebdrivercss.processResults)
       .call(done);
   });
@@ -81,7 +84,7 @@ describe('Visual monitor testing', function() {
               // Sale count down.
               '.pane-circuit-sale-circuitcountdown',
             ],
-            remove: [],
+          screenWidth: selectedCaps == 'chrome' ? [640, 1200] : undefined
         }, shoovWebdrivercss.processResults)
         .call(done);
     });
