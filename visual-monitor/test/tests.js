@@ -68,6 +68,9 @@ describe('Visual monitor testing', function() {
           [
             // Top carousel.
             '.slider',
+          ],
+        hide:
+          [
             // Auction title.
             '.block-views-front-page-call-out-block-block .views-field views-field-title-field',
             // Auction date.
