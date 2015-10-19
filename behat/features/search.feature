@@ -5,5 +5,5 @@ Feature:  Live search.
   @api
   Scenario: introduction of a string and receiving the appropriate score.
     Given I am an anonymous user
-    When I search "<portrait of theodo>"
+    When I search "portrait of theodo"
     Then Then the number of search results is between 1 and 200
