@@ -103,8 +103,8 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
   public function iSearch($search_string='')
   {
     // Wait for the input element.
-    $this->iWaitForCssElement('.form-type-textfield #edit-keys-1--2');
-    $element = $this->getSession()->getPage()->find('css', '#edit-keys-1--2');
+    $this->iWaitForCssElement('#edit-keys-1');
+    $element = $this->getSession()->getPage()->find('css', '#edit-keys-1');
     // Insert the text that you looking for.
     $element->setText($search_string);
     // Find the submit.
@@ -119,8 +119,8 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
   public function thenTheNumberOfSearchResultsIsBetweenAnd($arg1, $arg2)
   {
     // Wait for the result element.
-    $this->iWaitForCssElement('#block-current-search-standard .current-search-item h3');
-    $element = $this->getSession()->getPage()->find('css', '#edit-keys-1');
+//    $this->iWaitForCssElement('#block-current-search-standard .current-search-item h3');
+//    $element = $this->getSession()->getPage()->find('css', '#edit-keys-1');
     return TRUE;
   }
 
