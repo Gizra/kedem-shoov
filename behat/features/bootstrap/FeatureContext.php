@@ -35,4 +35,22 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
   public function iShouldNotHaveAccessToThePage() {
     $this->assertSession()->statusCodeEquals('403');
   }
+
+  /**
+   * @When I search :arg1
+   */
+  public function iSearch($arg1)
+  {
+    throw new PendingException();
+  }
+
+  /**
+   * @Then Then the number of search results is between :arg1 and :arg2
+   */
+  public function thenTheNumberOfSearchResultsIsBetweenAnd($arg1, $arg2)
+  {
+    throw new PendingException();
+  }
+
 }
+
