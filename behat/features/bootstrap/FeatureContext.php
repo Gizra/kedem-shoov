@@ -102,27 +102,27 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
    */
   public function iSearch($search_string='')
   {
-    // Wait for the input element.
-    $this->iWaitForCssElement('#edit-keys-1');
+    // Find search form.
     $element = $this->getSession()->getPage()->find('css', '#edit-keys-1');
     // Insert the text that you looking for.
-    $element->setText($search_string);
+    $element->setValue($search_string);
     // Find the submit.
-    $element = $this->getSession()->getPage()->find('css', '#edit-submit-1');
-    // Click on the submit button.
-    $element->click();
+    $submit = $this->getSession()->getPage()->find('css', '#search-api-page-search-form-search-page .form-submit');
+    $submit->click();
   }
 
   /**
-   * @Then Then the number of search results is between :arg1 and :arg2
+   * @Then the number of search results is between :min and :max
    */
-  public function thenTheNumberOfSearchResultsIsBetweenAnd($arg1, $arg2)
+  public function theNumberOfSearchResultsIsBetweenAnd($min, $max)
   {
-    // Wait for the result element.
-//    $this->iWaitForCssElement('#block-current-search-standard .current-search-item h3');
-//    $element = $this->getSession()->getPage()->find('css', '#edit-keys-1');
-    return TRUE;
-  }
+    $element = $this->getSession()->getPage()->find('css', '#block-current-search-standard .current-search-item h3');
+    $result = $element->getText();
+    preg_match('!\d+!', $result, $number);
 
+    if ($number[0]<$min || $number[0]>$max) {
+      throw new \Exception('The results are not in certain values.');
+    };
+  }
 }
 
