@@ -1,7 +1,19 @@
 before_script:
+  - set -e
   - cd ./visual-monitor
   - npm install
+  - cd ..
+
+  - cd ./behat
+  - cp behat.local.yml.example behat.local.yml
+  - composer install
+  - cd ..
 
 script:
+  - cd ./behat
+  - ./bin/behat --tags=~wip
+  - cd ..
+
+  - cd ./visual-monitor
   - PROVIDER_PREFIX=browserstack SELECTED_CAPS=chrome mocha
   - PROVIDER_PREFIX=browserstack SELECTED_CAPS=ie11 mocha
