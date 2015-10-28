@@ -75,6 +75,10 @@ describe('Visual monitor testing', function() {
             '.views-field-title-field',
             // Auction date.
             '.date-display-single',
+            // Button text
+            '.views-field-php a',
+            // Footer.
+            '.region-footer-left span'
           ],
         screenWidth: selectedCaps == 'chrome' ? [640, 1200] : undefined
       }, shoovWebdrivercss.processResults)
