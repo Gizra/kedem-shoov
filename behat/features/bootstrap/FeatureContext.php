@@ -35,4 +35,33 @@ class FeatureContext extends MinkContext implements SnippetAcceptingContext {
   public function iShouldNotHaveAccessToThePage() {
     $this->assertSession()->statusCodeEquals('403');
   }
+
+    /**
+   * @When I search :search_string
+   */
+  public function iSearch($search_string='')
+  {
+    // Find search form.
+    $element = $this->getSession()->getPage()->find('css', '#edit-keys-1');
+    // Insert the text that you looking for.
+    $element->setValue($search_string);
+    // Find the submit.
+    $submit = $this->getSession()->getPage()->find('css', '#search-api-page-search-form-search-page .form-submit');
+    $submit->click();
+  }
+
+  /**
+   * @Then the number of search results is between :min and :max
+   */
+  public function theNumberOfSearchResultsIsBetweenAnd($min, $max)
+  {
+    $element = $this->getSession()->getPage()->find('css', '#block-current-search-standard .current-search-item h3');
+    $result = $element->getText();
+    preg_match('!\d+!', $result, $number);
+
+    if ($number[0]<$min || $number[0]>$max) {
+      throw new \Exception('The results are not in certain values.');
+    };
+  }
 }
+
