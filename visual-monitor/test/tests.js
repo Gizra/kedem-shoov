@@ -62,6 +62,7 @@ describe('Visual monitor testing', function() {
   it('should show the home page',function(done) {
     client
       .url(baseUrl)
+      .pause(3000)
       .webdrivercss(testName + '.homepage', {
         name: '1',
         exclude:
@@ -77,8 +78,6 @@ describe('Visual monitor testing', function() {
             '.date-display-single',
             // Button text
             '.views-field-php a',
-            // Footer.
-            '.region-footer-left span'
           ],
         screenWidth: selectedCaps == 'chrome' ? [640, 1200] : undefined
       }, shoovWebdrivercss.processResults)
