@@ -80,7 +80,7 @@ describe('Visual monitor testing', function() {
             '.views-field-php a',
             // Footer
             '.region-footer-left',
-            '.footer-right',
+            '.region-footer-right',
           ],
         screenWidth: selectedCaps == 'chrome' ? [640, 1200] : undefined
       }, shoovWebdrivercss.processResults)
