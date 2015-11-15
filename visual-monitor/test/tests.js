@@ -72,6 +72,9 @@ describe('Visual monitor testing', function() {
           ],
         hide:
           [
+            // Tab links.
+            '.menu nav li a',
+            '.menu li a',
             // Auction title.
             '.views-field-title-field',
             // Auction date.
