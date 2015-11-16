@@ -84,6 +84,7 @@ describe('Visual monitor testing', function() {
             // Header
             '.user-top-wrapper  li a',
             '.user-top-wrapper label',
+            'user_join_link',
             // Footer
             '.region-footer-left',
             '.region-footer-right',
