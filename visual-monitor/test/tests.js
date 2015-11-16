@@ -81,6 +81,9 @@ describe('Visual monitor testing', function() {
             '.date-display-single',
             // Button text
             '.views-field-php a',
+            // Header
+            '.user-top-wrapper  li a',
+            '.user-top-wrapper label',
             // Footer
             '.region-footer-left',
             '.region-footer-right',
