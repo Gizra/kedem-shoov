@@ -88,6 +88,8 @@ describe('Visual monitor testing', function() {
             // Footer
             '.region-footer-left',
             '.region-footer-right',
+            // Login
+            '#edit-submit'
           ],
         screenWidth: selectedCaps == 'chrome' ? [640, 1200] : undefined
       }, shoovWebdrivercss.processResults)
