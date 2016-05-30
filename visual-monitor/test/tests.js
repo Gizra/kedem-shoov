@@ -38,7 +38,7 @@ var capsConfig = {
   }
 };
 
-var selectedCaps = process.env.SELECTED_CAPS || undefined;
+var selectedCaps = process.env.SELECTED_CAPS || undefined
 var caps = selectedCaps ? capsConfig[selectedCaps] : undefined;
 
 var providerPrefix = process.env.PROVIDER_PREFIX ? process.env.PROVIDER_PREFIX + '-' : '';
